@@ -1,54 +1,65 @@
 @import './reset.css';
 @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
-.page-info {
+
+
+
+.page-info{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-body {
+body{
   background-color: #222;
-  font-family: roboto, sans-serif;
-  font-weight: 800;
-  color: white;
+  font: {
+    family: roboto,sans-serif;
+    weight: 800;
+    
+  }
+  color:white;
 }
 
-page-info {
+page-info{
   display: flex;
-  justify-content: center;
+    justify-content: center;
   align-items: center;
 }
 
-header {
+header{
   height: 60px;
   display: flex;
   justify-content: space-between;
 }
 
-section.canvas {
-  background-color: #4d4d4d;
+section.canvas{
+  background-color: lighten($color: #000000, $amount: 30);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-button {
+$btn-bkg: #34ace0;
+
+button { 
   font-weight: 800;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: 10vw;
   cursor: pointer;
-  color: #34ace0;
+  color: $btn-bkg;
   background-color: transparent;
   font-size: 1rem;
 }
 
-button:hover, .fas:hover {
-  color: #8cd0ee;
-}
-button:active, .fas:active {
-  font-weight: 900;
+button , .fas { 
+  
+  &:hover{
+    color: lighten($btn-bkg, $amount: 20)
+  }
+
+  &:active{
+    font-weight: 900;
+  }
 }
 
-/*# sourceMappingURL=style.css.map */
