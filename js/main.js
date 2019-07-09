@@ -114,11 +114,23 @@
     scale+=0.2
     console.log(scale)
   }
+
+  function showMenu(){
+    document.querySelector('').style.display = ''
+  }
+
+  function downloadDoc(){
+    document.getElementById('dl').setAttribute('href',`${url}`)
+  }
+
+
+
   // button events 
   document.querySelector('[data-js="prev"]').addEventListener('click',  showPrevPage, false ) 
   document.querySelector('[data-js="next"]').addEventListener('click',  showNextPage, false ) 
   document.querySelector('[data-js="fadeScale"]').addEventListener('click', fadeScale, false)
   document.querySelector('[data-js="growScale"]').addEventListener('click', growScale, false)
-
+  // document.querySelector('[data-js="options"]').addEventListener('click', showMenu, false)
+  document.getElementById('dl').addEventListener('click', downloadDoc, false)
 
 })()
