@@ -1,27 +1,41 @@
 (function(){
   'use strict'
 
-  const url = '../doc/propostas-agora.pdf'
+  const url = '../doc/log.pdf'
 
-  let pdfDoc = null 
-  let pageNum = 1 
-  let pageIsRendering = false
-  let pageNumIsPending = null 
+  let 
+  pdfDoc = null, 
+  pageNum = 1, 
+  pageIsRendering = false,
+  scale = 1.5,
+  pageNumIsPending = null 
 
-  const scale = 1.0,
-    canvas = document.querySelector('#pdf-section'),
-    ctx = canvas.getContext('2d')
+  const  
+  canvas = document.querySelector('#pdf-canvas'),
+  ctx = canvas.getContext('2d')
+
+
+
+  // get doc
+  pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
+    pdfDoc = pdfDoc_
+  
+    document.querySelector('#page-count').textContent = pdfDoc.numPages
+  
+    renderPage(pageNum)
+  })
+
+
 
 
   //  render the page
-
-  const renderPage = num => {
+  function renderPage(num){
     pageIsRendering = true; 
 
     // get page
     pdfDoc.getPage(num).then(page => {
       // set scale
-      const viewport = page.getViewport({ scale})
+      const viewport = page.getViewport({ scale })
       canvas.height = viewport.height
       canvas.width = viewport.width
 
@@ -45,8 +59,10 @@
     })
   }
 
+  
+  
   // check for pages rendering
-  const queueRenderPage = num =>{
+  function queueRenderPage(num){
     if(pageIsRendering){
       pageNumIsPending = num 
     }
@@ -55,46 +71,54 @@
       renderPage(num)
     }
   }
-
+  
+  
+  
   //show prev page 
-    const showPrevPage = _ => {
-      if(pageNum <= 1){
-        return;
-      }
-
-      pageNum--
-      queueRenderPage(pageNum)
+  const showPrevPage = _ => {
+    if(pageNum <= 1){
+      return
     }
 
-  // show nxt page
+    pageNum--
+    queueRenderPage(pageNum)
+  }
+
+// show nxt page
 
   const showNextPage = _ => {
     if(pageNum >= pdfDoc.numPages){
-      return;
+      return
     }
 
     pageNum++ 
     queueRenderPage(pageNum)
   }
 
+  function fadeScale(){
+  
+    if(scale <= 0.8){
+      return;
+    }
 
+    scale-=0.2
+    console.log(scale)
+  }
 
+  function growScale(){
+  
+    if(scale >= 3){
+      return;
+    }
 
-  // get doc
-  pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
-    pdfDoc = pdfDoc_
-
-    document.querySelector('#page-count').textContent = pdfDoc.numPages
-
-    renderPage(pageNum)
-  })
-
-  console.log(pdfDoc)
-
-
+    scale+=0.2
+    console.log(scale)
+  }
   // button events 
+  document.querySelector('[data-js="prev"]').addEventListener('click',  showPrevPage, false ) 
+  document.querySelector('[data-js="next"]').addEventListener('click',  showNextPage, false ) 
+  document.querySelector('[data-js="fadeScale"]').addEventListener('click', fadeScale, false)
+  document.querySelector('[data-js="growScale"]').addEventListener('click', growScale, false)
 
-  document.querySelector('[data-js="prev"]').addEventListener('click',  showPrevPage ) 
-  document.querySelector('[data-js="next"]').addEventListener('click',  showNextPage ) 
 
 })()

@@ -1,54 +1,62 @@
 @import './reset.css';
 @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
-.page-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 body {
   background-color: #222;
+  color: white;
   font-family: roboto, sans-serif;
   font-weight: 800;
-  color: white;
+}
+
+
+
+.page-info {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 page-info {
+  align-items: center;
   display: flex;
   justify-content: center;
+}
+
+
+
+nav {
   align-items: center;
-}
-
-header {
-  height: 60px;
   display: flex;
-  justify-content: space-between;
+  height: 10vh;
+  justify-content: space-around;
 }
 
-section.canvas {
+main.canvas {
+  align-items: center;
   background-color: #4d4d4d;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-button {
-  font-weight: 800;
-  display: flex;
-  justify-content: space-evenly;
+nav button {
   align-items: center;
-  width: 10vw;
-  cursor: pointer;
-  color: #34ace0;
   background-color: transparent;
-  font-size: 1rem;
+  border-radius: 15px;
+  color: #34ace0;
+  cursor: pointer;
+  display: flex;
+  font-weight: 800;
+  justify-content: space-around;
+  width: 10vw;
 }
 
 button:hover, .fas:hover {
   color: #8cd0ee;
+  transition: 1s;
 }
 button:active, .fas:active {
-  font-weight: 900;
+  background-color: #8da1aa;
+  transition: 2s;
 }
 
 /*# sourceMappingURL=style.css.map */

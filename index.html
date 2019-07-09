@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -9,15 +10,28 @@
   <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
   <script src='js/main.js' defer></script>
 </head>
-<body>
-  <nav class="">
-    <button data-js="prev">prev page</button>
-    <button data-js="next">next page</button>
-    <div class="page-info">
-      page <span id="page-num"></span> of <span id="page-count"></span>
-    </div>
-  </nav>
 
-  <canvas id="pdf-section"></canvas>
+<body>
+  <header>
+    <nav>
+      <!-- <button data-js="zoom-in">zoom + </button>
+        <button data-js="zoom-out">zoom - </button> -->
+      <button class="nav-page" data-js="prev"><i class="fas fa-arrow-left"></i>prev page</button>
+
+      <div class="page-info">
+        <button data-js="fadeScale"><i class="fas fa-minus"></i></button>
+        <p> page <span id="page-num"></span> of <span id="page-count"></span></p>
+        <button data-js="growScale">
+          <i class="fas fa-plus"></i>
+         </button>
+      </div>
+
+      <button class="nav-page" data-js="next"></i>next page<i class="fas fa-arrow-right"></i></button>
+    </nav>
+  </header>
+  <main class="canvas">
+    <canvas id="pdf-canvas"></canvas>
+  </main>
 </body>
+
 </html>
