@@ -2,13 +2,6 @@
 @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
 
 
-
-.page-info{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 body{
   background-color: #222;
   font: {
@@ -17,6 +10,13 @@ body{
     
   }
   color:white;
+}
+
+
+.page-info{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 page-info{
