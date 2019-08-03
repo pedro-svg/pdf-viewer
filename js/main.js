@@ -14,6 +14,11 @@
     ctx = canvas.getContext('2d')
 
   // Get the doc
+  let url_ = url
+  let title = url_.match(/[\w-]+\./gm)
+  document.querySelector('#page-title').textContent = title
+  document.title = title 
+
   pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
     pdfDoc = pdfDoc_
 
@@ -107,14 +112,14 @@
   }
 
   function showOptions() {
-    document.querySelector('.options-container').style.display = 'block'
+    document.querySelector('.options-container').classList.toggle('showContainer')
   }
 
   function downloadDoc() {
     document.querySelector('#dl').setAttribute('href', `${url}`)
   }
 
-  function printDoc(){
+  function printDoc() {
     document.querySelector('.print')
   }
 
@@ -139,4 +144,5 @@
   // document.querySelector('[data-js="options"]').addEventListener('click', showMenu, false)
   document.getElementById('dl').addEventListener('click', downloadDoc, false)
   document.querySelector('.print').addEventListener('click', printDoc, false);
+  document.querySelector('.options').addEventListener('click', showOptions);
 })()

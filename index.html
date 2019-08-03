@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset='utf-8'>
@@ -13,27 +13,31 @@
 
 <body>
   <nav>
-    <button class="nav-page" data-js="prev"><i class="fas fa-arrow-left"></i>prev page</button>
-
+    <div class="scale-container">
+      <button data-js="growScale"><i class="fas fa-plus"></i></button>
+      <button data-js="fadeScale"><i class="fas fa-minus"></i></button>
+    </div>
     <div class="page-info">
-      <p> page <span id="page-num"></span> of <span id="page-count"></span></p>
+      <h1 > <span id="page-title"></span> </h1>
+      <h2> page <span id="page-num"></span> of <span id="page-count"></span></h2>
     </div>
 
-      <div class="scale-container">
-        <button data-js="fadeScale"><i class="fas fa-minus"></i></button>
-        <button data-js="growScale"><i class="fas fa-plus"></i></button>
-      </div>
-    <button class="nav-page" data-js="next"></i>next page<i class="fas fa-arrow-right"></i></button>
+    <button class="options">
+      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+      <ul class="options-container">
+        <li><a id="dl" download="file">download</a></li>
+        <li><a href="">load file</a></li>
+        <li><a href="" class="btn print">print</a></li>
+      </ul>
+    </button>
+
   </nav>
-  <section>
-    <ul class="options-container">
-      <li><a id="dl" data-js="download" download="file">download</a></li>
-      <li><a href="">load file</a></li>
-      <li><a href="" class="btn print">print</a></li>
-    </ul>
-  </section>
+
+
   <main class="canvas">
-    <canvas id="pdf-canvas"></canvas>
+    <button class="nav-page" data-js="prev"><i class="fas fa-arrow-left"></i></button>
+      <canvas id="pdf-canvas"></canvas>
+    <button class="nav-page" data-js="next"><i class="fas fa-arrow-right"></i></button>
   </main>
 </body>
 
