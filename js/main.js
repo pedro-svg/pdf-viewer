@@ -128,21 +128,19 @@
   // button events 
   document.querySelector('[data-js="prev"]').addEventListener('click', showPrevPage, false)
   document.querySelector('[data-js="next"]').addEventListener('click', showNextPage, false)
-
-  document.addEventListener('press', function (event) {
-    if (event.keyCode == 39) {
-      console.log('direira')
-      showNextPage()
-    } else if (event.keyCode == 37) {
-      console.log('direita')
-      showPrevPage()
-    }
-  })
-
   document.querySelector('[data-js="fadeScale"]').addEventListener('click', fadeScale, false)
   document.querySelector('[data-js="growScale"]').addEventListener('click', growScale, false)
-  // document.querySelector('[data-js="options"]').addEventListener('click', showMenu, false)
   document.getElementById('dl').addEventListener('click', downloadDoc, false)
   document.querySelector('.print').addEventListener('click', printDoc, false);
   document.querySelector('.options').addEventListener('click', showOptions);
+  document.addEventListener('keypress',(ev) => {
+    console.log(ev.keyCode)
+    if (ev.keyCode == 65 ||ev.keyCode == 97){
+      showPrevPage()
+    }
+    
+    else if(ev.keyCode == 68 ||ev.keyCode == 100){
+      showNextPage()
+    }
+  })
 })()
