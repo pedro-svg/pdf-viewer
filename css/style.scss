@@ -1,46 +1,35 @@
 @import './reset.css';
 @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
 
-
-body{
-  background-color: #222;
-  font: {
-    family: roboto,sans-serif;
-    weight: 800;
-    
-  }
-  color:white;
-}
-
-
-.page-info{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-page-info{
-  display: flex;
-    justify-content: center;
-  align-items: center;
-}
-
-nav{
-  height: 10vh;
-  display: flex;
-  justify-content: space-around;
-}
-
-main.canvas{
-  background-color: lighten($color: #000000, $amount: 30);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 $btn-bkg: #34ace0;
 
-button { 
+body {
+  background-color: #222;
+  color: white;
+
+  font: {
+    family: roboto, sans-serif;
+    weight: 800;
+  }
+}
+
+
+.page-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav {
+  height: 12vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+button {
   font-weight: 800;
   display: flex;
   justify-content: space-evenly;
@@ -52,14 +41,54 @@ button {
   font-size: 1rem;
 }
 
-button , .fas { 
-  
-  &:hover{
+button,
+.fas {
+
+  &:hover {
     color: lighten($btn-bkg, $amount: 20)
   }
 
-  &:active{
+  &:active {
     font-weight: 900;
   }
 }
 
+button.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+
+}
+
+.options-container {
+  z-index: 1;
+  margin-top: 20vh;
+  background-color: lighten($color: #000000, $amount: 20);
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 10vw;
+  height: 15vh;
+
+  a {
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+  }
+}
+
+.showContainer {
+  display: flex;
+}
+
+main.canvas {
+  background-color: lighten($color: #000000, $amount: 30);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

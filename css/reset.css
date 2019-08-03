@@ -29,3 +29,11 @@ fieldset, form, label, legend, table, caption, tbody, tfoot, thead
 body {
 	line-height: 1;
 }
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+li{
+	list-style-type: none;
+}
