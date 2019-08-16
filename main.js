@@ -9,7 +9,7 @@
     pageNumIsPending = null
 
   const
-    url = '../doc/log.pdf',
+    url = '../doc/propostas-agora.pdf',
     canvas = document.querySelector('#pdf-canvas'),
     ctx = canvas.getContext('2d')
 
